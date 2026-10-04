@@ -1,0 +1,37 @@
+# Theme: Nord Light
+# Manifest for /usr/share/argvus/appearance/themes.d/<id>/theme.toml.
+# Palette: official Nord values (nord0-nord15) read as an ARGVUS Light
+# interpretation. Derived ARGVUS tokens are documented in README.md.
+
+id = "nord-light"
+name = "Nord Light"
+category = "light"
+accent = "#5E81AC"
+wallpaper = "abstract/light/nord-light-abstract-light.jxl"
+
+[name_i18n]
+en-US = "Nord Light"
+pt-BR = "Nord Light"
+
+[palette]
+# RGB hex colors for splash and greeter rendering
+# bg: background color, fg: foreground, accent: highlight
+bg = "#ECEFF4"
+fg = "#2E3440"
+accent = "#5E81AC"
+
+[appearance]
+# GTK theme mapping (Adwaita|Adwaita-dark)
+gtk_scheme = "prefer-light"
+
+# Background color for effects/wallpaper fallback
+background = "#ECEFF4"
+
+# Calendar CSS variant identifier (may differ from theme id)
+calendar_css = "nord-light"
+
+# Removable devices CSS: resolved by theme-switch.sh; light fallback is argvus-light.css
+removable_devices_css = "argvus-light"
+
+[aliases]
+# Legacy theme ID mappings (if any) - format: "old-id" = "nord-light"

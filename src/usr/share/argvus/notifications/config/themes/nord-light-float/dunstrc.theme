@@ -1,0 +1,11 @@
+# theme: nord-light-float
+highlight = "#5E81AC"
+frame_color = "#7D8696"
+low_background = "#ECEFF4"
+low_foreground = "#4C566A"
+normal_background = "#E8ECF2"
+normal_foreground = "#4C566A"
+critical_background = "#CF939A"
+critical_foreground = "#2E3440"
+app_background = "#ECEFF4"
+app_foreground = "#2E3440"

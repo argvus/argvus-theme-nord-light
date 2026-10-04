@@ -1,0 +1,9 @@
+/* theme: nord-light-float */
+@define-color th-background #ECEFF4;
+@define-color th-header #5E81AC;
+@define-color th-foreground #2E3440;
+@define-color th-window-bg     #E8ECF2;
+@define-color th-window-bg-rgba rgba(232, 236, 242, 0.92);
+@define-color th-border rgba(125, 134, 150, 0.85);
+@define-color th-border-header rgba(94, 129, 172, 0.35);
+@define-color th-disconnected rgba(76, 86, 106, 0.45);

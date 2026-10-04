@@ -1,0 +1,10 @@
+/* theme: nord-light-float */
+* {
+    th-bg: rgba(232, 236, 242, 96%);
+    th-fg: rgb(46, 52, 64);
+    th-fg-selected: rgba(46, 52, 64, 100%);
+    th-row-alt: rgba(216, 222, 233, 35%);
+    th-row-selected: rgba(229, 233, 240, 96%);
+    th-border-color: rgba(125, 134, 150, 0.85);
+    th-separator: rgba(125, 134, 150, 0.65);
+}

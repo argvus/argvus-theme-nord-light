@@ -1,0 +1,32 @@
+# ARGVUS Nord Light
+[app]
+overall = { bg = "#ECEFF4" }
+[mgr]
+cwd = { fg = "#2E3440", bold = true }
+find_keyword = { fg = "#5E81AC", reversed = true }
+marker_copied = { fg = "#A3BE8C", bg = "#A3BE8C" }
+marker_cut = { fg = "#BF616A", bg = "#BF616A" }
+marker_marked = { fg = "#8FBCBB", bg = "#8FBCBB" }
+marker_selected = { fg = "#5E81AC", bg = "#5E81AC" }
+border_style = { fg = "#7D8696" }
+[indicator]
+current = { fg = "#2E3440", bg = "#E5E9F0" }
+[tabs]
+active = { fg = "#2E3440", bg = "#E5E9F0", bold = true }
+inactive = { fg = "#4C566A", bg = "#E8ECF2" }
+[status]
+overall = { fg = "#2E3440" }
+[which]
+mask = { bg = "#E5E9F0" }
+cand = { fg = "#5E81AC", bold = true }
+desc = { fg = "#4C566A" }
+[confirm]
+border = { fg = "#7D8696" }
+title = { fg = "#3B4252", bold = true }
+body = { fg = "#2E3440", bold = true }
+btn_yes = { fg = "#ECEFF4", bg = "#5E81AC", bold = true }
+btn_no = { fg = "#2E3440", bg = "#E5E9F0" }
+[help]
+on = { fg = "#5E81AC" }
+desc = { fg = "#4C566A", italic = true }
+footer = { fg = "#ECEFF4", bg = "#5E81AC", bold = true }
