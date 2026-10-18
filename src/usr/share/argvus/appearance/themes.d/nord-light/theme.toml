@@ -30,7 +30,7 @@ background = "#ECEFF4"
 # Calendar CSS variant identifier (may differ from theme id)
 calendar_css = "nord-light"
 
-# Removable devices CSS: resolved by theme-switch.sh; light fallback is argvus-light.css
+# Removable devices CSS: resolved by the theme transaction; light fallback is argvus-light.css
 removable_devices_css = "argvus-light"
 
 [aliases]
