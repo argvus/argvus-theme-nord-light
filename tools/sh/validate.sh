@@ -45,28 +45,39 @@ for pkgbuild_dir in packaging/arch/remote packaging/arch/local; do
 	)
 done
 
-# Yazi flavors shipped by this repository: a flavor.toml that is not TOML, or a
-# tmtheme.xml that is not a plist, breaks theme switching, so fail here.
-flavors_dir="src/usr/share/argvus/app-profiles/config/yazi/flavors"
-if [[ -d "$flavors_dir" ]]; then
-  python3 -I -c '
-import pathlib, plistlib, sys, tomllib
+# The theme manifest: schema 2, an id equal to its directory, and the palette
+# entries every theme needs. `argvus theme check` renders it against the
+# installed templates; this check needs nothing installed.
+python3 -I -c '
+import pathlib, sys, tomllib
 failed = False
-for flavor in sorted(pathlib.Path(sys.argv[1]).glob("*.yazi")):
+manifests = sorted(pathlib.Path(sys.argv[1]).glob("*/theme.toml"))
+if not manifests:
+  print("no theme manifest under " + sys.argv[1], file=sys.stderr)
+  sys.exit(1)
+for manifest in manifests:
   try:
-    tomllib.loads((flavor / "flavor.toml").read_text(encoding="utf-8"))
+    data = tomllib.loads(manifest.read_text(encoding="utf-8"))
   except (OSError, tomllib.TOMLDecodeError) as error:
-    print(f"invalid flavor.toml: {flavor}: {error}", file=sys.stderr)
+    print(f"invalid theme.toml: {manifest}: {error}", file=sys.stderr)
     failed = True
-  tmtheme = flavor / "tmtheme.xml"
-  if tmtheme.exists():
-    try:
-      plistlib.loads(tmtheme.read_bytes())
-    except Exception as error:
-      print(f"invalid tmtheme.xml: {tmtheme}: {error}", file=sys.stderr)
-      failed = True
+    continue
+  problems = []
+  if data.get("schema") != 2:
+    problems.append("schema must be 2")
+  if data.get("id") != manifest.parent.name:
+    problems.append("id must match the directory name")
+  if data.get("category") not in ("dark", "light"):
+    problems.append("category must be dark or light")
+  palette = data.get("palette", {})
+  problems += [f"palette.{name} is required" for name in ("bg", "fg", "accent") if name not in palette]
+  for name, target in data.get("overrides", {}).items():
+    if not (manifest.parent / target).is_file():
+      problems.append(f"overrides.{name}: {target} is missing")
+  for problem in problems:
+    print(f"{manifest}: {problem}", file=sys.stderr)
+  failed = failed or bool(problems)
 sys.exit(1 if failed else 0)
-' "$flavors_dir" || die "invalid Yazi flavor files"
-fi
+' src/usr/share/argvus/themes || die "invalid theme manifest"
 git diff --check
 printf 'Validation OK\n'

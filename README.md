@@ -109,9 +109,12 @@ between the local and release PKGBUILDs.
 ## Layout
 
 The payload in `src/` is copied to the package root (`cp -a src/. pkgdir/`).
-`src/usr/...` installs under `/usr/`, and `src/etc/...` installs under `/etc/`.
-Nothing that mirrors `/` lives outside `src/`. The installed wallpaper is the
-author's `.jxl`, copied byte for byte.
+It is the theme manifest, `src/usr/share/argvus/themes/nord-light/theme.toml`
+(schema 2: name, category, wallpaper and the palette), its template overrides
+under `overrides/`, and the wallpaper under `src/usr/share/backgrounds/argvus`.
+The files of every component are rendered from the palette when the theme is
+applied; `argvus theme check src/usr/share/argvus/themes/nord-light` renders them
+all. The installed wallpaper is the author's `.jxl`, copied byte for byte.
 
 ## Documentation
 
