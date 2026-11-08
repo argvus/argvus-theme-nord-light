@@ -1,6 +1,6 @@
 # Nord Light theme for ARGVUS
 
-Official ARGVUS Light theme, `nord-light`, with its Sticky and Float variants.
+Official ARGVUS Light theme, `nord-light`, with its Sticky and Spaced variants.
 
 [![CI](https://github.com/argvus/argvus-theme-nord-light/actions/workflows/ci.yml/badge.svg)](https://github.com/argvus/argvus-theme-nord-light/actions/workflows/ci.yml)
 [![Release](https://github.com/argvus/argvus-theme-nord-light/actions/workflows/release.yml/badge.svg)](https://github.com/argvus/argvus-theme-nord-light/actions/workflows/release.yml)
@@ -22,7 +22,7 @@ not an exact Nord value is an ARGVUS-derived mapping and is listed below.
 
 | Field | Value |
 | --- | --- |
-| Theme ID | `nord-light` (Float variant: `nord-light-float`, a geometry mode of the same palette) |
+| Theme ID | `nord-light` (Spaced variant: `nord-light-spaced`, a geometry mode of the same palette) |
 | Display name | Nord Light |
 | Mode | `light` |
 | Default highlight | `#5E81AC` (`nord10`) |
